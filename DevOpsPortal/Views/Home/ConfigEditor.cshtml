@@ -1,0 +1,17 @@
+﻿@model DevOpsPortal.Models.ErrorViewModel
+
+@{
+    ViewData["Title"] = "ConfigEditor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Jenkon Config Editor</h2>
+
+<div>
+    <h3>Below is used to edit the JSON config for Jenkins CI/CD.</h3>
+</div>
+
+<div>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |*@
+    <a asp-action="ConfigEditor">Back to List</a>
+</div>

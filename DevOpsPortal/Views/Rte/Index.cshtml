@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DevOpsPortal.Models.RteServer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hostname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.rteServiceName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.rteDir)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.rteDrive)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rteServiceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rteDir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.rteDrive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

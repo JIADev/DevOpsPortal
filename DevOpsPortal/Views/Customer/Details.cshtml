@@ -1,0 +1,80 @@
+﻿@model DevOpsPortal.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var envs = Model.environments;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Environments</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Model.name
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.environments)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    <td>
+                        <table>
+                            @foreach (var web in item.webservers)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(ws => web.name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(ws => web.ip)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(ws => web.hostname)
+                                </td>
+                            </tr>
+
+                            }
+                        </table>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.appDrive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.appDir)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.pkgDir)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.custPrefix)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.url)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.siteBAKSDir)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

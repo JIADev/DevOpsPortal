@@ -1,0 +1,49 @@
+﻿@model DevOpsPortal.Models.SqlServer
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>SqlServer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ip" class="control-label"></label>
+                <input asp-for="ip" class="form-control" />
+                <span asp-validation-for="ip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="hostname" class="control-label"></label>
+                <input asp-for="hostname" class="form-control" />
+                <span asp-validation-for="hostname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="dbName" class="control-label"></label>
+                <input asp-for="dbName" class="form-control" />
+                <span asp-validation-for="dbName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="backups" class="control-label"></label>
+                <input asp-for="backups" class="form-control" />
+                <span asp-validation-for="backups" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

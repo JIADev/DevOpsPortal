@@ -1,26 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DevOpsPortal.Models
 {
-    public class ConfigModel
-    {
 
-        public class settings
+        public class Settings
         {
+            public static Settings GetSettings()
+            {
+                return JsonConvert.DeserializeObject<Settings>(File.ReadAllText(@"C:\Users\jcollins\Dropbox\Jenkon\scripts\deploy\exampleDeployConfig.json"));
+            }
             public List<Customer> customers { get; set; }
         }
         public class Customer
         {
             public string name { get; set; }
-            public List <Environment> environments { get; set; }
+            public List<Environment> environments { get; set; }
 
         }
 
         public class WebServer
         {
+            public string name { get; set; }
             public string ip { get; set; }
             public string hostname { get; set; }
         }
@@ -64,10 +69,10 @@ namespace DevOpsPortal.Models
         {
             public string name { get; set; }
             public List<WebServer> webservers { get; set; }
-            public List<SqlServer> sql { get; set; }
-            public List<RteServer> rte { get; set; }
-            public List<RedisServer> redis { get; set; }
-            public List<ReportsServer> reports { get; set; }
+            public SqlServer sql { get; set; }
+            public RteServer rte { get; set; }
+            public RedisServer redis { get; set; }
+            public ReportsServer reports { get; set; }
             public string appDrive { get; set; }
             public string appDir { get; set; }
             public string pkgDir { get; set; }
@@ -76,5 +81,7 @@ namespace DevOpsPortal.Models
             public string siteBAKSDir { get; set; }
         }
 
-    }
+        
+
+
 }

@@ -4,36 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using DevOpsPortal.Models;
 
 namespace DevOpsPortal.Controllers
 {
-    public class ConfigController : Controller
+    public class SqlController : Controller
     {
-
-       
-
-
-        // GET: Config
+        // GET: Sql
         public ActionResult Index()
         {
-
             return View();
         }
 
-        // GET: Config/Details/5
+        // GET: Sql/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Config/Create
+        // GET: Sql/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Config/Create
+        // POST: Sql/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -50,13 +45,13 @@ namespace DevOpsPortal.Controllers
             }
         }
 
-        // GET: Config/Edit/5
+        // GET: Sql/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Config/Edit/5
+        // POST: Sql/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -73,13 +68,13 @@ namespace DevOpsPortal.Controllers
             }
         }
 
-        // GET: Config/Delete/5
+        // GET: Sql/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Config/Delete/5
+        // POST: Sql/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

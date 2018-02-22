@@ -1,11 +1,11 @@
-﻿@model IEnumerable<DevOpsPortal.Models.ConfigModel>
+﻿@model IEnumerable<DevOpsPortal.Models.RedisServer>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Create</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,12 +13,24 @@
 <table class="table">
     <thead>
         <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ip)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hostname)
+                </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hostname)
+            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |

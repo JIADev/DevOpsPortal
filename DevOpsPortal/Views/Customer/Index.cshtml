@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DevOpsPortal.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(c => c.name)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(c => item.name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Customer", "Edit", new { name=item.name }) |
+                @Html.ActionLink("Environments", "Details","Environment", new { name=item.name }) |
+                @Html.ActionLink("Delete Customer", "Delete", new { name = item.name })
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>

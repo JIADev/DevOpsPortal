@@ -1,0 +1,45 @@
+﻿@model DevOpsPortal.Models.SqlServer
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SqlServer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hostname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.hostname)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.dbName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.dbName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.backups)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.backups)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
